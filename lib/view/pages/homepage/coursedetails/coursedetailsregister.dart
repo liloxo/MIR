@@ -40,7 +40,7 @@ class Groupecontainer extends GetView<CoursedetailsRegisterController> {
         borderRadius: BorderRadius.circular(13)
       ),
       padding: EdgeInsets.symmetric(horizontal: Sizes.widthfifteen),
-      height: controller.whentap[i] ? 500 : 60 ,
+      height: controller.whentap[i] ? null : 60 ,
       width: double.infinity,
       child: Column(
       children: [
@@ -63,10 +63,11 @@ class Groupecontainer extends GetView<CoursedetailsRegisterController> {
             const Groupeinfo(property: 'Status',condition: 'Available'),
             const Groupeinfo(property: 'Duration',condition: '3 hours a week'),
             const Groupeinfo(property: 'Price',condition: '3000da'),
-            const Groupeinfo(property: 'Location',condition: 'Press'),
+            const Groupeinfo(property: 'City',condition: 'Biskra'),
+            const Groupeinfo(property: 'Location',condition: 'Check'),
             const Groupeinfo(property: 'Seats',condition: '30/40'),
             Container(
-              margin: const EdgeInsets.only(top: 50),
+              margin: const EdgeInsets.only(top: 50,bottom: 20),
               alignment: Alignment.bottomCenter,
               child: CustomInkWell(selected: true,data: 'Apply',onTap: (){},))
           ]

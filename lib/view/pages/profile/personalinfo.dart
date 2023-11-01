@@ -87,13 +87,13 @@ class PersonalInfo extends StatelessWidget {
                       },
                       child: Container(
                         padding: const EdgeInsets.only(bottom: 10),
-                        width: AppSize.width / 4.1,
+                        width: AppSize.width / 3,
                         height: AppSize.height * 0.08,
                         decoration: BoxDecoration(
                           color: AppColors.secondary,
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child:  Center(child: Text('22'.tr,style: const TextStyle(fontSize: 22,fontWeight: FontWeight.w500,color: AppColors.textWhite,letterSpacing: 1))),
+                        child:  Center(child: Text('22'.tr,style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w500,color: AppColors.textWhite,letterSpacing: 1))),
                       ),
                     )
                 )

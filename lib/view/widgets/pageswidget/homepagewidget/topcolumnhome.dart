@@ -17,6 +17,7 @@ class TopColumnHome extends StatelessWidget {
       children: [
         SizedBox(height: AppSize.height * 0.04),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               height: Sizes.widthsixty,
@@ -25,14 +26,7 @@ class TopColumnHome extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: Sizes.widthfifteen),
-              padding: EdgeInsets.only(bottom: Sizes.widthtwenty),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("${'27'.tr}, $firstname!",style: const TextStyle(fontSize: 22,color: AppColors.third,fontWeight: FontWeight.w700)),
-                  Text('28'.tr,style: const TextStyle(fontSize: 18,color: AppColors.grey,fontWeight: FontWeight.w500))
-                ]
-              )
+              child: Text("${'27'.tr}, $firstname!",style: const TextStyle(fontSize: 24,color: AppColors.third,fontWeight: FontWeight.w700))
             )
           ]
         ),

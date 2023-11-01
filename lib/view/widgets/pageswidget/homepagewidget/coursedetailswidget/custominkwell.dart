@@ -17,14 +17,19 @@ class CustomInkWell extends StatelessWidget {
       child: InkWell(
         onTap:onTap,
         child: Container(
-          padding: const EdgeInsets.only(bottom: 5),
+          margin: const EdgeInsets.only(right: 5),
           height: Sizes.widthsixty,
           width: AppSize.width / 3.7,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(27),
             color: selected ? AppColors.secondary : AppColors.background
           ),
-          child: Center(child: Text(data,style: TextStyle(color: selected ? AppColors.textWhite : AppColors.black,fontSize: 16,fontWeight: FontWeight.w500,letterSpacing: 1))),
+          child: Center(
+            child: SingleChildScrollView(scrollDirection: Axis.horizontal,child: Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Text(data,style: TextStyle(color: selected ? AppColors.textWhite : AppColors.black,fontSize: 15,fontWeight: FontWeight.w500,letterSpacing: 1)),
+            )),
+          ),
         )
       )
     );

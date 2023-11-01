@@ -28,8 +28,14 @@ class HomepageController extends GetxController {
   }
 
   List cat = [
-    'Math','Science','Physics','Marketing','Technology','History',
+    '51'.tr,'52'.tr,'53'.tr,'54'.tr,'55'.tr,'56'.tr,'57'.tr 
   ];
+  toupd(){
+    cat = [
+    '51'.tr,'52'.tr,'53'.tr,'54'.tr,'55'.tr,'56'.tr,'57'.tr 
+    ];
+    update();
+  }
 
   void tapcat(int i) {
     if(whentap[i].value == true){

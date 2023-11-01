@@ -22,18 +22,17 @@ class CustomTabBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(30)
         ),
         child: ListView.builder(
-          physics: const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemCount: 3,
           itemBuilder: (BuildContext context, int i) { 
             return CustomInkWell(
-              selected: controller.currentpage == i ? true : false,
-              data: controller.titles[i],
-              onTap: () => controller.whentap(i)
+                selected: controller.currentpage == i ? true : false,
+                data: controller.titles[i],
+                onTap: () => controller.whentap(i)
             );
-          }
-         )
-        );
+          }, 
+        )
+      );
      }
     );
   }

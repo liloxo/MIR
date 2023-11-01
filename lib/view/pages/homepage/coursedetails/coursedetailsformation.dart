@@ -21,7 +21,7 @@ class CourseDetailsFormation extends StatelessWidget {
             children: [
             IconButton(onPressed: (){Get.back();}, icon: const Icon(Icons.arrow_back,size: 28)),
             Container(
-              margin: EdgeInsets.only(left: Sizes.widthfifteen,right: Sizes.widthsixty),
+              margin: EdgeInsets.only(left: Sizes.widthfifteen),
               child: Text(controller.title!,style: Theme.of(context).textTheme.displayMedium)),
           ]),
           SizedBox(height: Sizes.widthtwenty),
@@ -30,14 +30,14 @@ class CourseDetailsFormation extends StatelessWidget {
             children: [
               Container(
                 margin: EdgeInsets.only(right: Sizes.widthfifteen,left: Sizes.widthfifteen),
-                  width: Sizes.widthfifty,
-                  height: Sizes.widthfifty,
-                  child: Hero(
-                    tag: '${controller.image}1',
-                     child: ClipOval(
-                        child: CachedNetworkImage( imageUrl: controller.image!,fit: BoxFit.cover),
-                      ),
-                   ),
+                width: Sizes.widthfifty,
+                height: Sizes.widthfifty,
+                child: Hero(
+                  tag: '${controller.image}1',
+                  child: ClipOval(
+                    child: CachedNetworkImage( imageUrl: controller.image!,fit: BoxFit.cover),
+                  ),
+                ),
               ),
               Text(controller.teacher!,style: const TextStyle(fontSize: 22,color: AppColors.secondary,fontWeight: FontWeight.w600),)
             ],
@@ -46,8 +46,39 @@ class CourseDetailsFormation extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(controller.description!,style: const TextStyle(fontSize: 18,color: AppColors.grey,fontWeight: FontWeight.w600)),
           ),
+          const Formationitem(itemtitle: 'Status',itemstatus: 'Available'),
+          const Formationitem(itemtitle: 'Groupes',itemstatus: '5'),
         ],
       ),
+    );
+  }
+}
+
+class Formationitem extends StatelessWidget {
+  final String itemtitle;
+  final String itemstatus;
+  const Formationitem({super.key, required this.itemtitle, required this.itemstatus,});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children:  [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(itemtitle,style: const TextStyle(fontSize: 22,fontWeight: FontWeight.w600, color: AppColors.black),),
+        ),
+        Container(
+          height: 50,
+          padding: const EdgeInsets.only(right: 10,left: 10,top: 5),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(17),
+            border: Border.all(color: AppColors.secondary)
+          ),
+          child: Text(itemstatus,style: const TextStyle(fontSize: 17,fontWeight: FontWeight.w600,letterSpacing: 1)), 
+        )
+      ],
     );
   }
 }
