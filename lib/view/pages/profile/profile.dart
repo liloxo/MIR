@@ -24,11 +24,13 @@ class Profile extends StatelessWidget {
             alignment: Alignment.center,
             child: Text('35'.tr,style: Theme.of(context).textTheme.displayLarge) 
           ),
-          ProfileTopRow(name: controller.fullname, email: controller.email),
+          GetBuilder<ProfileController>(builder: (con){
+            return ProfileTopRow(name: controller.fullname, email: controller.email!,image: con.image,);
+          }),
           Column(
             children: [
               const SizedBox(height: 25),
-              ProfileListTile(leading: const Icon(Icons.person_3_outlined),title: '36'.tr,onTap: (){Get.toNamed('personalinfo');}),
+              ProfileListTile(leading: const Icon(Icons.person_3_outlined),title: '36'.tr,onTap: (){Get.toNamed('personalinfo',arguments: {'image':controller.image});}),
               ProfileListTile(leading: const Icon(Icons.language_outlined),title: '37'.tr,onTap: (){chooselang(context);}),
               ProfileListTile(leading: const Icon(Icons.event_note_outlined),title: '38'.tr,onTap: (){Get.toNamed('contactus');}),
               ProfileListTile(leading: const Icon(Icons.share_outlined),title: '39'.tr,onTap: (){controller.shareapp();}),

@@ -5,13 +5,14 @@ import '../../../core/services/services.dart';
 class ContactusController extends GetxController {
 
  TextEditingController textEditingController = TextEditingController();
- RxBool isEmpty = true.obs;
+ bool isEmpty = true;
  late String email;
  late String fullname;
  MyServices myServices = Get.find();
 
   void change(String value) {
-    isEmpty.value = value.isEmpty;
+    isEmpty = value.isEmpty;
+    update();
   }
 
 

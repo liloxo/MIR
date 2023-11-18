@@ -40,14 +40,20 @@ dependencies:
   http: ^0.13.6
   dartz: ^0.10.1
   flutter_otp_text_field: ^1.1.1
-  image_picker: ^0.8.7+5
+  image_picker: ^1.0.4
   path: ^1.8.0
-  intl: ^0.17.0
+  intl: ^0.18.1
   rxdart: ^0.27.7
   google_sign_in: ^6.1.5
   share_plus: ^7.1.0
   cached_network_image: ^3.2.3
   shimmer: ^3.0.0
+  firebase_core: ^2.21.0
+  firebase_auth: ^4.12.1
+  firebase_messaging: ^14.7.3
+  cloud_firestore: ^4.12.2
+  firebase_storage: ^11.4.1
+  firebase_core_platform_interface: ^5.0.0
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"

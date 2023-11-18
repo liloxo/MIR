@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "380289393360",
+    "project_id": "mirit-3059a",
+    "storage_bucket": "mirit-3059a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380289393360:android:f5258ed10bf1c104fb34d5",
+        "android_client_info": {
+          "package_name": "com.example.mir"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPNjdZu42w6RnOdmgkPgqr3RNujAKKFTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

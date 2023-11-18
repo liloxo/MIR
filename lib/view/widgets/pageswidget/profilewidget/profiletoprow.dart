@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mir/core/components/imagedecoration.dart';
 import '../../../../core/constants/sizes.dart';
 
 class ProfileTopRow extends StatelessWidget {
   final String name;
   final String email;
-  const ProfileTopRow({Key? key, required this.name, required this.email}) : super(key: key);
+  final String? image;
+  const ProfileTopRow({Key? key, required this.name, required this.email, this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +14,13 @@ class ProfileTopRow extends StatelessWidget {
       children: [
        Container(
         margin: EdgeInsets.only(right: AppSize.width * 0.06),
+        padding:  EdgeInsets.all(Sizes.widthfifteen),
         height: AppSize.width * 0.28,
         width: AppSize.width * 0.28,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20)
         ),
-        child: Image.asset('assets/onboardingone.png',fit: BoxFit.fill)
+        child: ImageDecoration(image: image)
        ),
        Column(
         crossAxisAlignment: CrossAxisAlignment.start,

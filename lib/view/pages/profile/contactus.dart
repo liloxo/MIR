@@ -48,25 +48,27 @@ class ContactUs extends StatelessWidget {
                   )
                 )
               ),
-              Obx(() => 
-              Container(
+              GetBuilder<ContactusController>(
+                builder: (controller){
+                return  Container(
                 margin: const EdgeInsets.only(top: 25),
                 alignment: Alignment.center,
                 child: 
                   GestureDetector(
-                    onTap: controller.isEmpty.value ? null : () => controller.sendemail(),
+                    onTap: controller.isEmpty ? null : () => controller.sendemail(),
                     child: Container(
                       padding: const EdgeInsets.only(bottom: 10),
                       width: AppSize.width / 3.8,
                       height: AppSize.height * 0.06,
                       decoration: BoxDecoration(
-                        color: controller.isEmpty.value ? AppColors.grey : AppColors.secondary,
+                        color: controller.isEmpty ? AppColors.grey : AppColors.secondary,
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child:  Center(child: Text('41'.tr,style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w500,color: AppColors.textWhite,letterSpacing: 1))),
                     )
                   )
-              ))
+              );
+              })
             ]
           )
         )

@@ -65,7 +65,7 @@ class UserDetails extends StatelessWidget {
                       },
                       child: Container(
                         padding: const EdgeInsets.only(bottom: 10),
-                        width: 100,
+                        width: 150,
                         height: 60,
                         decoration: BoxDecoration(
                           color: AppColors.secondary,

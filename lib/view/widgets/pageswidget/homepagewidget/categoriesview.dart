@@ -9,8 +9,8 @@ class CategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(HomepageController());
     return GetBuilder<HomepageController>(
+      init: HomepageController(),
       builder: (controller){
       return  Container(
       margin: EdgeInsets.only(top: Sizes.widthtwenty,bottom: Sizes.widthtwenty),
@@ -19,24 +19,21 @@ class CategoriesView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: controller.cat.length,
         itemBuilder: (context,i){
-          return InkWell(
-            onTap: () {
-              controller.tapcat(i);
-            },
-            child:  
-            Container(
-              padding: const EdgeInsets.only(bottom: 8,right: 10,left: 10),
-              margin: const EdgeInsets.only(right: 15),
-              height: Sizes.widthfifteen,
-              decoration: BoxDecoration(
-                color: controller.whentap[i].value ? AppColors.secondary : AppColors.grey,
-                borderRadius: BorderRadius.circular(20)
-              ),
-              child: Center(child: Text(controller.cat[i],style: const TextStyle(color: AppColors.textWhite,fontSize: 17.5,fontWeight: FontWeight.w500,letterSpacing: 1)))
-              
-            )
+          return Container(
+            padding: const EdgeInsets.only(bottom: 8,right: 10,left: 10),
+            margin: EdgeInsets.only(right: Sizes.widthfifteen),
+            height: Sizes.widthfifteen,
+            decoration: BoxDecoration(
+              color: controller.whentap[i].value ? AppColors.secondary : AppColors.grey,
+              borderRadius: BorderRadius.circular(20)
+            ),
+            child:InkWell(
+              onTap: () {
+                controller.tapcat(i);
+              },
+              child: Center(child: Text(controller.cat[i],style: const TextStyle(color: AppColors.textWhite,fontSize: 17.5,fontWeight: FontWeight.w500,letterSpacing: 1))))
           );
-      }),
+      })
     );
     });
   }

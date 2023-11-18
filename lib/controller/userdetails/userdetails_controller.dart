@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mir/data/model/cities/cities.dart';
@@ -12,13 +13,15 @@ class UserdetailsController extends GetxController{
   GlobalKey<FormState> globalKey = GlobalKey();
   MyServices myServices = Get.find();
   String? cityVal;
+  late String id;
+  CollectionReference<Map<String, dynamic>> firebasefirestore = FirebaseFirestore.instance.collection('users');
 
   cityval(){
     cityVal = selectedCity!.value;
     return cityVal;
   }
 
-  saveinfo(){
+  saveinfo() async {
     if(globalKey.currentState!.validate()){
       if(status == '15'.tr.obs ){
         Get.defaultDialog(
@@ -27,9 +30,16 @@ class UserdetailsController extends GetxController{
       }else{
         myServices.sharedPreferences.setString('step', '3');
         myServices.sharedPreferences.setString('fullname', fullnamecontroller.text);
+        await firebasefirestore.doc(id).update({
+          'username': fullnamecontroller.text,
+          'status':status.value
+        });
         Get.offAllNamed('home');
         if(selectedCity != '16'.tr.obs){
          myServices.sharedPreferences.setString('city', cityval());
+         await firebasefirestore.doc(id).update({
+          'city': cityval()
+        });
         }
       }
     }
@@ -72,4 +82,9 @@ class UserdetailsController extends GetxController{
       () {changeval('19'.tr,status);});
   }
   
+  @override
+  void onInit() {
+    id = myServices.sharedPreferences.getString('id')!;
+    super.onInit();
+  }
 }
