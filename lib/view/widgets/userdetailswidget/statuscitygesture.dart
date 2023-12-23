@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mir/core/constants/sizes.dart';
 import '../../../core/constants/colors.dart';
 
 class StatusCityGesture extends StatelessWidget {
@@ -13,9 +14,9 @@ class StatusCityGesture extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 30),
-        padding: const EdgeInsets.only(left: 20,right: 8),
-        height: 50,
+        margin: EdgeInsets.only(bottom: Sizes.widthtwentyfive),
+        padding: EdgeInsets.only(left: Sizes.widthtwenty,right: 8),
+        height: Sizes.widthfifty,
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -25,7 +26,9 @@ class StatusCityGesture extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(field,style: style),
+            SizedBox(
+              width: AppSize.width /1.45,
+              child: Text(field,style: style)),
             Center(child: Icon(icon,color: AppColors.third,size: 30))
           ]
         )

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import '../../../../view/pages/homepage/coursedetails/coursedetailsformation.dart';
 import '../../../../view/pages/homepage/coursedetails/coursedetailsregister.dart';
-import '../../../../view/pages/homepage/coursedetails/coursedetailsreviews.dart';
+import '../../../../view/pages/homepage/coursedetails/coursedetailsreviews/coursedetailsreviews.dart';
 
 class CoursedetailsController extends GetxController {
 

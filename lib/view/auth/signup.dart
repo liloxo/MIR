@@ -29,19 +29,16 @@ class SignUp extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-            Text('2'.tr,style: Theme.of(context).textTheme.displayLarge),
-           /* SizedBox(height: AppSize.height * 0.02),
-            Text('3'.tr,style: Theme.of(context).textTheme.bodyLarge),*/
+            Text('2'.tr,style: Theme.of(context).textTheme.displayLarge)
           ]),
           MethodContainer(
-           ismethod: false,
             onPressed: () {
               controller.signIn();
             }
           )
         ]
-       ),
-     ),
+       )
+     )
     );
   }
 }

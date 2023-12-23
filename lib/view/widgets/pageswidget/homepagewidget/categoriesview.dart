@@ -27,9 +27,9 @@ class CategoriesView extends StatelessWidget {
               color: controller.whentap[i].value ? AppColors.secondary : AppColors.grey,
               borderRadius: BorderRadius.circular(20)
             ),
-            child:InkWell(
+            child:InkWell( 
               onTap: () {
-                controller.tapcat(i);
+                controller.tapcat(i,controller.cat[i]);
               },
               child: Center(child: Text(controller.cat[i],style: const TextStyle(color: AppColors.textWhite,fontSize: 17.5,fontWeight: FontWeight.w500,letterSpacing: 1))))
           );

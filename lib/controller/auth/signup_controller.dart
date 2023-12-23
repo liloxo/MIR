@@ -3,13 +3,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:mir/core/constants/firebaseinstance.dart';
 import '../../core/services/services.dart';
 
 class SignupController extends GetxController {
 
   //GoogleSignIn googlesignin = GoogleSignIn(clientId: webid);
   MyServices myServices = Get.find();
-  CollectionReference<Map<String, dynamic>> firebasefirestore = FirebaseFirestore.instance.collection('users');
   String? token;
   //static String webid = '901405283129-1dsfvsd18oj2t7n7se5fqur0o92ooth1.apps.googleusercontent.com';
 
@@ -29,8 +29,8 @@ class SignupController extends GetxController {
     accessToken: googleAuth.accessToken,
     idToken: googleAuth.idToken,
   );
-  await FirebaseAuth.instance.signInWithCredential(credential);
-  DocumentReference<Map<String, dynamic>> docpath = firebasefirestore.doc(googleUser.id);
+  await FirebaseInstances.firebaseauth.signInWithCredential(credential);
+  DocumentReference<Map<String, dynamic>> docpath = FirebaseInstances.firebaseFirestore.collection('users').doc(googleUser.id);
   DocumentSnapshot<Map<String, dynamic>> res = await docpath.get();
   List? info = res.data()?['token'];
   if(res.exists){

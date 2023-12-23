@@ -20,7 +20,7 @@ class SearchField extends StatelessWidget {
             color: AppColors.third
           )
         ),
-        hintText: '21'.tr,
+        hintText: '21'.tr, 
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
       ),
     );

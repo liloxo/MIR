@@ -26,5 +26,4 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: '/personalinfo', page: ()  => const PersonalInfo()),
   GetPage(name: '/contactus'   , page: ()  => const ContactUs()),
 
-
 ];

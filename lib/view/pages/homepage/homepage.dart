@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mir/core/components/loadingshimmer.dart';
 import 'package:mir/core/constants/sizes.dart';
 import 'package:mir/view/widgets/pageswidget/homepagewidget/topcolumnhome.dart';
 import '../../../controller/pages/homepagecontroller/homepage_controller.dart';
+import '../../../core/class/handlingdataview.dart';
+import '../../../core/components/loadingshimmer.dart';
+import '../../../core/constants/colors.dart';
 import '../../widgets/pageswidget/homepagewidget/categoriesview.dart';
 import '../../widgets/pageswidget/homepagewidget/coursecard.dart';
 
@@ -13,53 +15,39 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(HomepageController());
     return GetBuilder<HomepageController>(
+      init: HomepageController(),
       builder: (controller){
       return Scaffold(
       body: Container(
         margin: EdgeInsets.all(Sizes.widthtwenty),
-        child: ListView(
-          padding: EdgeInsets.zero,
+        child: Column(
           children: [
             TopColumnHome(
-              firstname: controller.fullname,
-              onChanged: (value) {
-                controller.searchchange(value);
-                
-              } 
+              onChanged: (value) {controller.searchchange(value);} 
             ),
-            SizedBox(
-              child: controller.isloading 
-            ? const LoadingShimmer()
-              : controller.issearch 
-              ? Image.asset('assets/nodata.png')
-            :
-            Column(
-              children:  [
-                const CategoriesView(),
-                CourseCard(
-              category: 'Math', 
-              status: '46'.tr, 
-              title: 'Math Bac', 
-              description: 'learn all the units you need with the best revesion methodslearn all the units you need with the best revesion method', 
-              teacher: 'Mr.Ahmed', 
-              reviews: '4.5', 
-              likes: '15',
-              image: 'https://loremflickr.com/320/240/music?lock=2',
-            ),
-                CourseCard(
-              category: 'Physics', 
-              status: '47'.tr, 
-              title: 'Physics Bac', 
-              description: 'learn all the units you need with the best revesion methodslearn all the units you need with the best revesion method', 
-              teacher: 'Ms.Amel', 
-              reviews: '4.7', 
-              likes: '35',
-              image: 'https://images.unsplash.com/photo-1532264523420-881a47db012d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9',
-            )
-              ]
-            )
+            const CategoriesView(),
+            Expanded(
+              child: HandlingDataView(
+                loading: const LoadingShimmer(),
+                nodatawidget: const ImageStatus(image: 'assets/nodata.png'),
+                statusRequest: controller.statusRequest,
+                widget: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: controller.formationmodel.length,
+                  itemBuilder: (context,i){
+                  return CourseCard(
+                    i: i,
+                    formationmodel: controller.formationmodel[i], 
+                    child:InkWell(
+                      onTap: () {
+                        controller.favoritetap(controller.formationmodel[i].isfav!,i);
+                      },
+                      child: Icon(controller.formationmodel[i].isfav! ? Icons.favorite : Icons.favorite_border_outlined ,color: AppColors.secondary)
+                    )
+                  );
+                })
+              )
             )
           ]
         )

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mir/controller/pages/profilecontroller/contactus_controller.dart';
+import 'package:mir/core/components/longtextfield.dart';
 import 'package:mir/core/constants/colors.dart';
 import 'package:mir/core/constants/sizes.dart';
 
@@ -23,30 +24,7 @@ class ContactUs extends StatelessWidget {
               const SizedBox(height: 20),
               SizedBox(
                 height: AppSize.height * 0.2 ,
-                child: TextFormField(
-                  onChanged: (value) {
-                    controller.change(value);
-                  },
-                  controller: controller.textEditingController,
-                  maxLines: 5,
-                  style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w500,letterSpacing: 1),
-                  cursorColor: AppColors.secondary,
-                  decoration: InputDecoration(
-                    focusColor: AppColors.secondary,
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                        width: 2.2,
-                        color: AppColors.secondary 
-                      )
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                    label: Text('42'.tr,style: const TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.w500)),
-                    //floatingLabelBehavior: FloatingLabelBehavior.always,
-                    prefixIconColor: AppColors.secondary,
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(10))
-                  )
-                )
+                child: LongTextField(data: '42'.tr,onChanged: (value) {controller.change(value);},controller: controller.textEditingController,)
               ),
               GetBuilder<ContactusController>(
                 builder: (controller){

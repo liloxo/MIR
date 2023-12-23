@@ -8,7 +8,11 @@ class LoadingShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ListView.builder(
+      padding: EdgeInsets.zero,
+      itemCount: 2,
+      itemBuilder: (context,i){
+        return Container(
         height: AppSize.height / 3.2,
         margin:
             EdgeInsets.only(bottom: Sizes.widthfifteen, top: Sizes.widthtwenty),
@@ -52,6 +56,8 @@ class LoadingShimmer extends StatelessWidget {
                     height: Sizes.widthtwentyfive, width: Sizes.widthfifty)
               ])
             ])));
+      }
+    );
   }
 }
 

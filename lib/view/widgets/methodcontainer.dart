@@ -4,9 +4,8 @@ import '../../core/constants/colors.dart';
 import '../../core/constants/sizes.dart';
 
 class MethodContainer extends StatelessWidget {
-  final bool ismethod;
   final void Function()? onPressed;
-  const MethodContainer({super.key , this.onPressed, required this.ismethod});
+  const MethodContainer({super.key , this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +22,13 @@ class MethodContainer extends StatelessWidget {
       onPressed: onPressed,
       child: 
       Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children:  [
-        ismethod 
-        ? const Icon(Icons.phone_android,color: AppColors.third) 
-        : SizedBox(
-          height: 35,
-          child: Image.asset('assets/google.jpg',fit: BoxFit.fill)),
-        ismethod 
-        ? Text('4'.tr,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w500,letterSpacing: 1)) 
-        : Text('5'.tr,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w500,letterSpacing: 1))
+        SizedBox(
+          height: AppSize.height * 0.05,
+          child: Image.asset('assets/google.jpg',fit: BoxFit.fill)
+        ),
+        Text('5'.tr,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w500,letterSpacing: 1))
         ])
       )
     );

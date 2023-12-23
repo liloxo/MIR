@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mir/data/model/cities/cities.dart';
+import 'package:mir/core/class/cities.dart';
 import '../../core/services/services.dart';
 import '../../view/widgets/userdetailswidget/statusdefault.dart';
 

@@ -5,7 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mir/core/constants/savedvalues.dart';
-import 'package:mir/data/model/cities/cities.dart';
+import 'package:mir/core/class/cities.dart';
 import 'package:path/path.dart';
 import '../../../core/services/services.dart';
 

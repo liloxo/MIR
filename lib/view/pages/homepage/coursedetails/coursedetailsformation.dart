@@ -22,7 +22,7 @@ class CourseDetailsFormation extends StatelessWidget {
             IconButton(onPressed: (){Get.back();}, icon: const Icon(Icons.arrow_back,size: 28)),
             Container(
               margin: EdgeInsets.only(left: Sizes.widthfifteen),
-              child: Text(controller.title!,style: Theme.of(context).textTheme.displayMedium)),
+              child: Text(controller.formationmodel.title!,style: Theme.of(context).textTheme.displayMedium)),
           ]),
           SizedBox(height: Sizes.widthtwenty),
           Row(
@@ -33,21 +33,25 @@ class CourseDetailsFormation extends StatelessWidget {
                 width: Sizes.widthfifty,
                 height: Sizes.widthfifty,
                 child: Hero(
-                  tag: '${controller.image}1',
+                  tag: '${controller.formationmodel.image}1',
                   child: ClipOval(
-                    child: CachedNetworkImage( imageUrl: controller.image!,fit: BoxFit.cover),
+                    child: controller.formationmodel.image == '' 
+                    ? Image.asset('assets/nullpic.png')
+                    : CachedNetworkImage( imageUrl: controller.formationmodel.image!,fit: BoxFit.cover),
                   ),
                 ),
               ),
-              Text(controller.teacher!,style: const TextStyle(fontSize: 22,color: AppColors.secondary,fontWeight: FontWeight.w600),)
+              Text(controller.formationmodel.teacher!,style: const TextStyle(fontSize: 22,color: AppColors.secondary,fontWeight: FontWeight.w600,letterSpacing: 1))
             ],
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(controller.description!,style: const TextStyle(fontSize: 18,color: AppColors.grey,fontWeight: FontWeight.w600)),
+            child: Text(controller.formationmodel.description!,style: const TextStyle(fontSize: 18,color: AppColors.grey,fontWeight: FontWeight.w600))
           ),
-          const Formationitem(itemtitle: 'Status',itemstatus: 'Available'),
-          const Formationitem(itemtitle: 'Groupes',itemstatus: '5'),
+          Formationitem(itemtitle: '15'.tr,itemstatus: controller.formationmodel.status! == 'Available' ? '46'.tr : '47'.tr), 
+          Formationitem(itemtitle: '72'.tr,itemstatus: controller.formationmodel.city!),
+          Formationitemlocation(itemtitle: '73'.tr,),
+          Formationitem(itemtitle: '74'.tr,itemstatus: controller.formationmodel.groupes!.toString()),
         ],
       ),
     );
@@ -77,6 +81,34 @@ class Formationitem extends StatelessWidget {
             border: Border.all(color: AppColors.secondary)
           ),
           child: Text(itemstatus,style: const TextStyle(fontSize: 17,fontWeight: FontWeight.w600,letterSpacing: 1)), 
+        )
+      ],
+    );
+  }
+}
+
+class Formationitemlocation extends StatelessWidget {
+  final String itemtitle;
+  const Formationitemlocation({super.key, required this.itemtitle});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children:  [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(itemtitle,style: const TextStyle(fontSize: 22,fontWeight: FontWeight.w600, color: AppColors.black),),
+        ),
+        Container(
+          height: 50,
+          padding: const EdgeInsets.only(right: 10,left: 10,top: 5),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(17),
+            border: Border.all(color: AppColors.secondary)
+          ),
+          child: IconButton(onPressed: (){}, icon: const Icon(Icons.location_on,size: 25,)), 
         )
       ],
     );

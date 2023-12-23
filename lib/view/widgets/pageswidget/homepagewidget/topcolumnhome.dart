@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mir/core/localization/locale.dart';
+import '../../../../controller/pages/homepagecontroller/homepage_controller.dart';
 import '../../../../core/components/searchfield.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/sizes.dart';
 
-class TopColumnHome extends StatelessWidget {
-  final String firstname;
+class TopColumnHome extends GetView<HomepageController> {
   final void Function(String)? onChanged;
-  const TopColumnHome({Key? key, required this.firstname, this.onChanged}) : super(key: key);
+  const TopColumnHome({Key? key, this.onChanged}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class TopColumnHome extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: Sizes.widthfifteen),
-              child: Text("${'27'.tr}, $firstname!",style: const TextStyle(fontSize: 24,color: AppColors.third,fontWeight: FontWeight.w700))
+              child: Text("${'27'.tr}, ${controller.fullname}!",style: const TextStyle(fontSize: 24,color: AppColors.third,fontWeight: FontWeight.w700))
             )
           ]
         ),
