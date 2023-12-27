@@ -18,6 +18,6 @@ class CourseDetails extends StatelessWidget {
           const CustomTabBar(),
           Expanded(child: controller.pages.elementAt(controller.currentpage))
         ]));
-    });
+    }); 
   }
 }

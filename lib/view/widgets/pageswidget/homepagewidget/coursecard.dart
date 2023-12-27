@@ -19,7 +19,7 @@ class CourseCard extends StatelessWidget {
         Get.toNamed('coursedetails',arguments: {'formationmodel':formationmodel,'formationid':formationmodel.id});
       },
       child: Container(
-        height: AppSize.height / 3.2,
+       // height: AppSize.height / 3.2,
         margin: EdgeInsets.only(bottom: Sizes.widthfifteen),
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
@@ -34,7 +34,7 @@ class CourseCard extends StatelessWidget {
               status: formationmodel.status! == 'Available' ? '46'.tr : '47'.tr
               ),
               TitleDiscription(title: formationmodel.title!, description: formationmodel.description!),
-              BottomRow(i: i,image: formationmodel.image!, teacher: formationmodel.teacher!, reviews: formationmodel.reviews.toString(), likes: formationmodel.favorites.toString(),child: child,)
+              BottomRow(i: i,image: formationmodel.image!, teacher: formationmodel.teacher!, reviews: formationmodel.reviews.toString(), likes: formationmodel.favorites,child: child,)
             ]
         )
       )
@@ -64,7 +64,7 @@ class BottomRow extends StatelessWidget {
   final String? image;
   final String teacher;
   final String? reviews;
-  final String likes;
+  final int? likes;
   final Widget? child;
   final int i ;
 
@@ -102,9 +102,11 @@ class BottomRow extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 5),
               child: const Icon(Icons.star_border_outlined,color: AppColors.secondary,)),
-            Padding(
+            likes == 0
+            ? const SizedBox()
+            : Padding(
               padding: const EdgeInsets.only(right: 5),
-              child: Text(likes),
+              child: Text(likes.toString()),
             ),
             child!
           ]

@@ -76,9 +76,9 @@ class Groupecontainer extends GetView<CoursedetailsRegisterController> {
           children: [
             SizedBox(height: Sizes.widthfifteen),
             Groupeinfo(property: '15'.tr,condition: registerModel.status! == 'Available' ? '46'.tr : '47'.tr),
-            Groupeinfo(property: '75'.tr,condition: registerModel.duration!),
-            Groupeinfo(property: '76'.tr,condition: registerModel.price!),
-            Groupeinfo(property: '77'.tr,condition: "${registerModel.reserved}/${registerModel.seats}"),
+            Groupeinfo(property: '75'.tr,condition: registerModel.duration! == '' ? '91'.tr : registerModel.duration!),
+            Groupeinfo(property: '76'.tr,condition: registerModel.price! == '' ? '91'.tr : registerModel.price!),
+            Groupeinfo(property: '61'.tr,condition: registerModel.seats == null ? "${registerModel.reserved}" : "${registerModel.reserved}/${registerModel.seats}"),
             controller.checkreg[i] == true 
             ? Container(
               margin: EdgeInsets.symmetric(vertical: Sizes.widthtwenty),

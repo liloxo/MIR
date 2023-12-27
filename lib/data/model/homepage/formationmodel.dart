@@ -14,6 +14,7 @@ class FormationModel {
   String? title;
   String? status;
   String? image;
+  String? userid;
 
   FormationModel(
     {this.id,
@@ -30,6 +31,7 @@ class FormationModel {
     this.categoryfr,
     this.title,
     this.status,
+    this.userid,
     this.image});
 
   FormationModel.fromJson(Map<String, dynamic> json, String this.id) {
@@ -58,8 +60,12 @@ class FormationModel {
     data['description'] = description;
     data['location'] = location;
     data['category'] = category;
+    data['categoryar'] = categoryar;
+    data['categoryfr'] = categoryfr;
     data['title'] = title;
     data['status'] = status;
+    data['userid'] = userid;
+    data['imageurl'] = image;
     return data;
   }
 }

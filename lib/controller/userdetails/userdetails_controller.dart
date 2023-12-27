@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mir/core/class/cities.dart';
+import '../../core/functions/translatestring.dart';
 import '../../core/services/services.dart';
 import '../../view/widgets/userdetailswidget/statusdefault.dart';
 
@@ -30,6 +31,7 @@ class UserdetailsController extends GetxController{
       }else{
         myServices.sharedPreferences.setString('step', '3');
         myServices.sharedPreferences.setString('fullname', fullnamecontroller.text);
+        myServices.sharedPreferences.setString('status', translatestat(status.value));
         await firebasefirestore.doc(id).update({
           'username': fullnamecontroller.text,
           'status':status.value

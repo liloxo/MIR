@@ -5,15 +5,17 @@ class LongTextField extends StatelessWidget {
   final String data;
   final void Function(String)? onChanged;
   final TextEditingController? controller;
-  const LongTextField({Key? key, required this.data, this.onChanged, this.controller}) : super(key: key);
+  final int? maxLength;
+  final int? maxLines;
+  const LongTextField({Key? key, required this.data, this.onChanged, this.controller, this.maxLength, this.maxLines}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
      // validator: validator,
       onChanged: onChanged,
-      maxLines: 5,
-      maxLength: 150,
+      maxLines: maxLines,
+      maxLength: maxLength,
       controller: controller,
       style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w500,letterSpacing: 1),
       cursorColor: AppColors.secondary,

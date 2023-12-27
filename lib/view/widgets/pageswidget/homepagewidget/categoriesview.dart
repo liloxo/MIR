@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mir/core/constants/sizes.dart';
 import '../../../../controller/pages/homepagecontroller/homepage_controller.dart';
+import '../../../../core/class/cities.dart';
 import '../../../../core/constants/colors.dart';
 
 class CategoriesView extends StatelessWidget {
@@ -13,11 +14,11 @@ class CategoriesView extends StatelessWidget {
       init: HomepageController(),
       builder: (controller){
       return  Container(
-      margin: EdgeInsets.only(top: Sizes.widthtwenty,bottom: Sizes.widthtwenty),
+      margin: EdgeInsets.only(bottom: Sizes.widthtwenty),
       height: Sizes.widthfifty,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: controller.cat.length,
+        itemCount: cats.length,
         itemBuilder: (context,i){
           return Container(
             padding: const EdgeInsets.only(bottom: 8,right: 10,left: 10),
@@ -29,9 +30,9 @@ class CategoriesView extends StatelessWidget {
             ),
             child:InkWell( 
               onTap: () {
-                controller.tapcat(i,controller.cat[i]);
+                controller.tapcat(i,cats[i]);
               },
-              child: Center(child: Text(controller.cat[i],style: const TextStyle(color: AppColors.textWhite,fontSize: 17.5,fontWeight: FontWeight.w500,letterSpacing: 1))))
+              child: Center(child: Text(cats[i],style: const TextStyle(color: AppColors.textWhite,fontSize: 17.5,fontWeight: FontWeight.w500,letterSpacing: 1))))
           );
       })
     );

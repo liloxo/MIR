@@ -1,3 +1,7 @@
+import 'package:get/get.dart';
+
+List cats = ['51'.tr,'52'.tr,'53'.tr,'54'.tr,'55'.tr,'56'.tr,'57'.tr,'ot'.tr ];
+
 List<String> cities = [
   "Adrar",
   "Chlef",

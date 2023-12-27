@@ -76,6 +76,7 @@ class CoursedetailsRegisterController extends GetxController {
     .collection('students').doc(SavedValues.id).set({
       'name': SavedValues.username,
       'email': SavedValues.email,
+      'id': SavedValues.id,
       'reserved':false
     });
     await FirebaseInstances.firebaseFirestore.collection('courses').doc(SavedValues.id).collection('registeredformations').doc(formationid).set({

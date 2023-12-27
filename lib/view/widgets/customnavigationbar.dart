@@ -29,7 +29,8 @@ class CustomNavigationBar extends StatelessWidget {
           BottomNavigationBarItem(icon: const Icon(Icons.home),label: '30'.tr),
           BottomNavigationBarItem(icon: const Icon(Icons.favorite_border_outlined),label: '31'.tr),
           BottomNavigationBarItem(icon: const Icon(Icons.school_outlined),label: '32'.tr),
-          BottomNavigationBarItem(icon: const Icon(Icons.message_outlined),label: '33'.tr),
+          //BottomNavigationBarItem(icon: const Icon(Icons.school_sharp),label: '92'.tr),
+          //BottomNavigationBarItem(icon: const Icon(Icons.message_outlined),label: '33'.tr),
           BottomNavigationBarItem(icon: const Icon(Icons.person_outlined),label: '34'.tr)
           ]
         )

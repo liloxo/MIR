@@ -23,7 +23,7 @@ class MakeReview extends StatelessWidget {
             children: [
               const Starsview(),
               const SizedBox(height: 30),
-              LongTextField(data: '63'.tr,controller: controller.textEditingController,),
+              LongTextField(data: '63'.tr,controller: controller.textEditingController,maxLength: 150,maxLines: 5),
               Container(
                 margin: const EdgeInsets.only(top: 50),
                 alignment: Alignment.center,
@@ -68,7 +68,7 @@ class EditReview extends StatelessWidget {
             children: [
               const Starsviewtwo(),
               const SizedBox(height: 30),
-              LongTextField(data: '63'.tr,controller: controller.textEditingController,),
+              LongTextField(data: '63'.tr,controller: controller.textEditingController,maxLength: 150,maxLines: 5),
               Container(
                 margin: const EdgeInsets.only(top: 50),
                 alignment: Alignment.center,

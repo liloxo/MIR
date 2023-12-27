@@ -38,7 +38,11 @@ class TopColumnHome extends GetView<HomepageController> {
           alignment: controller.language == const Locale("ar") ? Alignment.centerRight : Alignment.centerLeft,
           child: Text('29'.tr,style: const TextStyle(fontSize: 22,color: AppColors.secondary,fontWeight: FontWeight.bold)));
         }) ,
-        SearchField(onChanged: onChanged)
+        controller.fortextfield 
+        ? const SizedBox()
+        : Container(
+          margin: EdgeInsets.only(bottom: Sizes.widthtwenty),
+          child: SearchField(onChanged: onChanged))
       ]
     );
   }

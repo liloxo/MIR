@@ -24,7 +24,7 @@ class ContactUs extends StatelessWidget {
               const SizedBox(height: 20),
               SizedBox(
                 height: AppSize.height * 0.2 ,
-                child: LongTextField(data: '42'.tr,onChanged: (value) {controller.change(value);},controller: controller.textEditingController,)
+                child: LongTextField(data: '42'.tr,onChanged: (value) {controller.change(value);},controller: controller.textEditingController,maxLines: 5,)
               ),
               GetBuilder<ContactusController>(
                 builder: (controller){

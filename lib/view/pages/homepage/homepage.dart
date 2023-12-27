@@ -19,14 +19,14 @@ class HomePage extends StatelessWidget {
       init: HomepageController(),
       builder: (controller){
       return Scaffold(
-      body: Container(
+      body: Container( 
         margin: EdgeInsets.all(Sizes.widthtwenty),
         child: Column(
           children: [
             TopColumnHome(
               onChanged: (value) {controller.searchchange(value);} 
             ),
-            const CategoriesView(),
+            controller.forcategory ? const SizedBox(): const CategoriesView(),
             Expanded(
               child: HandlingDataView(
                 loading: const LoadingShimmer(),

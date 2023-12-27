@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mir/core/functions/checkinternet.dart';
+import '../../../core/class/cities.dart';
 import '../../../core/class/statusrequest.dart';
 import '../../../core/constants/firebaseinstance.dart';
 import '../../../core/constants/savedvalues.dart';
@@ -17,6 +18,8 @@ class HomepageController extends GetxController {
   List<RxBool> whentap = [];
   bool issearch = false;
   bool isloading = false;
+  bool fortextfield = false;
+  bool forcategory = false;
   TextEditingController textEditingController = TextEditingController();
   Timer? debouncee;
   List<FormationModel> formationmodel = [];
@@ -136,9 +139,12 @@ class HomepageController extends GetxController {
   }
 
   searchchange(String? value){
+    forcategory = true;
+    update();
     if (debouncee?.isActive ?? false) debouncee!.cancel();
     if(value == "" || value!.isEmpty){
       getdataformations();
+      forcategory = false;
       update();
       return;
     }else{
@@ -148,21 +154,20 @@ class HomepageController extends GetxController {
       });
     }
   }
-  List cat = [
-    '51'.tr,'52'.tr,'53'.tr,'54'.tr,'55'.tr,'56'.tr,'57'.tr 
-  ];
   toupd(){
-    cat = [
+    cats = [
     '51'.tr,'52'.tr,'53'.tr,'54'.tr,'55'.tr,'56'.tr,'57'.tr 
     ];
     update();
   }
   void tapcat(int i,String cat) {
     if(whentap[i].value == true){
+      fortextfield = false;
       getdataformations();
       whentap[i].value = false;
     }else{
       for (var element in whentap) {element.value = false; }
+      fortextfield = true;
       whentap[i].value = !whentap[i].value;
       getcat(cat);
     }
@@ -172,7 +177,7 @@ class HomepageController extends GetxController {
   @override
   void onInit() {
     fullname = myServices.sharedPreferences.getString('fullname')!;
-    whentap = List<RxBool>.generate(cat.length, (index) => false.obs);
+    whentap = List<RxBool>.generate(cats.length, (index) => false.obs);
     getdataformations();
     super.onInit();
   }
