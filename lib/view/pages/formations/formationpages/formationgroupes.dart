@@ -42,10 +42,10 @@ class FormationGroupes extends StatelessWidget {
               children: [
                 Text(" ${'60'.tr} ${i+1}",style: const TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w500,letterSpacing: 1)),
                 SizedBox(height: Sizes.widthfifteen),
-                LongTextField(data: '86'.tr,maxLines: 1,controller: groupController.timeController ),
+                LongTextField(data: '86'.tr,maxLines: 1,controller: groupController.timeController ,maxLength: 15, ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: Sizes.widthtwenty),
-                  child: LongTextField(data: '76'.tr,maxLines: 1,controller: groupController.priceController,)),
+                  child: LongTextField(data: '76'.tr,maxLines: 1,controller: groupController.priceController,maxLength: 10,)),
                 LongTextField(data: '77'.tr,maxLines: 1,controller: groupController.seatsController,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

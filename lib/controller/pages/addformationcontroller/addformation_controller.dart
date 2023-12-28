@@ -70,7 +70,7 @@ class AddformationController extends GetxController {
     }
   }
 
-  create(){
+  create() async {
     if(cat == '79'.tr || city == '80'.tr || title.text.isEmpty || description.text.isEmpty || groupes.text.isEmpty   ){
      Get.defaultDialog(content: Text("88".tr));
      return;
@@ -79,6 +79,8 @@ class AddformationController extends GetxController {
      return;
     }
     else{
+      var userdata = await FirebaseInstances.firebaseFirestore.collection('users').doc(SavedValues.id).get();
+      String? image = userdata.data()!['imageurl'];
       groupesnum = int.tryParse(groupes.text);
       for (var i = 1; i <= groupesnum! ; i++) {
         groupControllers.add(GroupController());
@@ -96,7 +98,7 @@ class AddformationController extends GetxController {
       teacher: SavedValues.username,
       groupes:groupesnum,
       status: 'Available',
-      image: '',
+      image: image ?? '',
       userid: SavedValues.id,
       favorites: 0
     );

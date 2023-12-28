@@ -7,7 +7,9 @@ import 'package:get/get.dart';
 import 'package:mir/core/constants/savedvalues.dart';
 import 'package:mir/core/class/cities.dart';
 import 'package:path/path.dart';
+import '../../../core/constants/firebaseinstance.dart';
 import '../../../core/services/services.dart';
+
 
 class PersonalinfoController extends GetxController{
 
@@ -34,6 +36,10 @@ class PersonalinfoController extends GetxController{
      await firebasefirestore.doc(SavedValues.id).update({
       'imageurl': imageurl
      });
+     var daa = await FirebaseInstances.firebaseFirestore.collection('formations').where('userid',isEqualTo: SavedValues.id).get();
+     for (var i in daa.docs) {
+      await FirebaseInstances.firebaseFirestore.collection('formations').doc(i.id).update({'imageurl':imageurl});
+     }
      update();
     }
   }

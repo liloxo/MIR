@@ -125,7 +125,9 @@ class Groupeinfo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(property,style: Theme.of(context).textTheme.displayMedium),
-          Text(condition,style: const TextStyle(fontWeight: FontWeight.w500,fontSize: 17,letterSpacing: 1)),
+          SizedBox(
+           // width: AppSize.width/2.5,
+            child: Text(condition,style: const TextStyle(fontWeight: FontWeight.w500,fontSize: 17,letterSpacing: 1),overflow: TextOverflow.ellipsis,)),
         ]
       ),
     );

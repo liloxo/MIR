@@ -57,15 +57,16 @@ class HomepageController extends GetxController {
     }else{
       String? id = formationmodel[i].id;
       DocumentReference<Map<String, dynamic>> dd = favformations.doc(id);
+    /*  formationmodel[i].isfav = !formationmodel[i].isfav!;
+      formationmodel[i].favorites = isfav ? formationmodel[i].favorites! - 1 : formationmodel[i].favorites! + 1;*/
       formationmodel[i].isfav = !formationmodel[i].isfav!;
-      formationmodel[i].favorites = isfav ? formationmodel[i].favorites! - 1 : formationmodel[i].favorites! + 1;
       update();
       if(isfav == false){
         await dd.set({ 'formationid':id});
-        await ress.doc(id).update({'favorites': formationmodel[i].favorites! });
+        await ress.doc(id).update({'favorites': formationmodel[i].favorites! + 1});
       }else{
         await dd.delete();
-        await ress.doc(id).update({'favorites': formationmodel[i].favorites! });
+        await ress.doc(id).update({'favorites': formationmodel[i].favorites! - 1});
       }
     }
   }

@@ -13,10 +13,11 @@ class FavoriteController extends GetxController {
   CollectionReference<Map<String, dynamic>> favoriteformations = FirebaseInstances.firebaseFirestore.collection('favorites').doc(SavedValues.id).collection('favoriteformations');
 
   favoritetap(int i) async {
+    int ii = formationmodel![i].favorites! -1;
     if (i >= 0 && i < formationmodel!.length) {
       String? id = formationmodel![i].id;
       await favoriteformations.doc(id).delete();
-      await FirebaseInstances.firebaseFirestore.collection('formations').doc(id).update({'favorites': formationmodel![i].favorites! -1});
+      await FirebaseInstances.firebaseFirestore.collection('formations').doc(id).update({'favorites': ii});
       formationmodel!.removeAt(i);
       update();
     if (formationmodel!.isEmpty) {

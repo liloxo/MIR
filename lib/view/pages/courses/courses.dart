@@ -109,10 +109,12 @@ class Toprow extends GetView<CoursesController> {
             Container(
               padding: const EdgeInsets.only(top: 8),
               width: AppSize.width / 3.2,
-              child:  Text(controller.formationmodel![i].teacher!,style: const TextStyle(color: AppColors.black,fontSize: 17,fontWeight: FontWeight.w700,letterSpacing: 1),maxLines: 1)),
+              child:  Text(controller.formationmodel![i].teacher!,style: const TextStyle(color: AppColors.black,fontSize: 17,fontWeight: FontWeight.w700,letterSpacing: 1),maxLines: 1,overflow: TextOverflow.ellipsis)),
           ]
         ),
-        Text(controller.formationmodel![i].title!,style: const TextStyle(color: AppColors.black,fontSize: 18,fontWeight: FontWeight.w600),maxLines: 1,overflow: TextOverflow.ellipsis),
+        SizedBox(
+          width: AppSize.width / 3,
+          child: Text(controller.formationmodel![i].title!,style: const TextStyle(color: AppColors.black,fontSize: 18,fontWeight: FontWeight.w600),maxLines: 1,overflow: TextOverflow.ellipsis)),
       ],
     );
   }
