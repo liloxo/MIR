@@ -4,9 +4,9 @@ class MyTranslation extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "ar": {
-          'a': 'محتوى',
-          'b': 'التقي',
-          'c': 'أكمل',
+          'a': 'اكتشف مجموعة متنوعة من التكوينات التي تقدمها معلمون متحمسون ومؤسسات ذات سمعة طيبة',
+          'b': 'مير تتيح لك العثور على التكوين المثالي الذي يتناسب مع أهدافك',
+          'c': 'التسجيل بسهولة',
           "1": "مرحبا بك في مير",
           "2": "لنبدأ",
           "3": "اختر طريقتك لتسجيل الدخول",
@@ -109,9 +109,9 @@ class MyTranslation extends Translations {
           
         },
         "en": {
-          'a': 'Content',
-          'b': 'Meet',
-          'c': 'Follow',
+          'a': 'Discover a variety of formations offered by passionate teachers and reputable institutions',
+          'b': 'MIR allows you to find the perfect formation that aligns with your goals',
+          'c': 'Seamless Registration and Communication',
           "1": "Welcome To Mir",
           "2": "Get Started",
           "3": 'Choose Your Method To Sign In',
@@ -215,9 +215,9 @@ class MyTranslation extends Translations {
         },
 
       "fr": {
-       'a': 'Contenu',
-       'b': 'Rencontrer',
-       'c': 'Suivre',
+       'a': 'Découvrez une variété de formations proposées par des enseignants passionnés et des institutions réputées',
+       'b': 'MIR vous permet de trouver la formation parfaite qui correspond à vos objectifs.',
+       'c': 'Inscription et communication fluides',
        '1': 'Bienvenue chez Mir',
        '2': 'Commencer',
        '3': 'Choisissez votre méthode de connexion',

@@ -29,11 +29,13 @@ class Profile extends StatelessWidget {
           }),
           Column(
             children: [
-              const SizedBox(height: 25),
+              const SizedBox(height: 50),
               ProfileListTile(leading: const Icon(Icons.person_3_outlined),title: '36'.tr,onTap: (){Get.toNamed('personalinfo',arguments: {'image':controller.image});}),
-              ProfileListTile(leading: const Icon(Icons.language_outlined),title: '37'.tr,onTap: (){chooselang(context);}),
-              ProfileListTile(leading: const Icon(Icons.event_note_outlined),title: '38'.tr,onTap: (){Get.toNamed('contactus');}),
-              ProfileListTile(leading: const Icon(Icons.share_outlined),title: '39'.tr,onTap: (){controller.shareapp();}),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 25),
+                child: ProfileListTile(leading: const Icon(Icons.language_outlined),title: '37'.tr,onTap: (){chooselang(context);})),
+             // ProfileListTile(leading: const Icon(Icons.event_note_outlined),title: '38'.tr,onTap: (){Get.toNamed('contactus');}),
+              //ProfileListTile(leading: const Icon(Icons.share_outlined),title: '39'.tr,onTap: (){controller.shareapp();}),
               LogoutListTile(onTap: () => controller.signout())
             ]
           )
