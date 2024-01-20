@@ -25,8 +25,8 @@ class ProfileController extends GetxController {
   signout() async {
     await myServices.sharedPreferences.clear();
     await myServices.sharedPreferences.setString('step', '1');
-    await googlesignin.disconnect();
     Get.offAllNamed('signup');
+    await googlesignin.disconnect();
   }
 
   @override

@@ -108,7 +108,7 @@ class Formationitemlocation extends StatelessWidget {
             borderRadius: BorderRadius.circular(17),
             border: Border.all(color: AppColors.secondary)
           ),
-          child: IconButton(onPressed: (){}, icon: const Icon(Icons.location_on,size: 25,)), 
+          child: IconButton(onPressed: (){Get.defaultDialog(content: Text('91'.tr));}, icon: const Icon(Icons.location_on,size: 25,)), 
         )
       ],
     );

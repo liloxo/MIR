@@ -133,7 +133,7 @@ class Addcourse extends StatelessWidget {
           field: '84'.tr,
           icon: Icons.location_on,
           style: controller.statusstyle('Select Location','Select Location'),
-          onTap: () {}
+          onTap: () {Get.defaultDialog(content: Text('91'.tr));}
         ),
         CustomInkWell(data: '11'.tr, selected: true,onTap: () {controller.create();})
       ]

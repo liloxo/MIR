@@ -10,7 +10,6 @@ class MethodContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      padding: const EdgeInsets.only(left: 5),
       height: AppSize.height * 0.09,
       margin:  EdgeInsets.symmetric(horizontal: AppSize.width * 0.08,vertical: AppSize.width / 07),
       decoration: BoxDecoration(

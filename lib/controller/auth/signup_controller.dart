@@ -4,6 +4,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mir/core/constants/firebaseinstance.dart';
+import '../../core/functions/translatestring.dart';
 import '../../core/services/services.dart';
 
 class SignupController extends GetxController {
@@ -39,6 +40,7 @@ class SignupController extends GetxController {
       Get.offAllNamed('userdetails');
     }else{
       myServices.sharedPreferences.setString('fullname', res.data()!['username']);
+      myServices.sharedPreferences.setString('status', translatestat(res.data()!['status']));
       savepref('3',googleUser.email,googleUser.id);
       Get.offAllNamed('home');
     }

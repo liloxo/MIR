@@ -13,7 +13,7 @@ import '../../../core/services/services.dart';
 
 class PersonalinfoController extends GetxController{
 
-  RxString status = '18'.tr.obs;
+  String? status ;
   late String? selectedCity ;
   late String fullname;
   late TextEditingController fullnamecontroller ;
@@ -103,6 +103,7 @@ class PersonalinfoController extends GetxController{
   @override
   void onInit() {
     fullname = myServices.sharedPreferences.getString('fullname')!;
+    status = myServices.sharedPreferences.getString('status');
     selectedCity = myServices.sharedPreferences.getString('city') ?? '16'.tr;
     fullnamecontroller = TextEditingController(text: fullname);
     image = Get.arguments['image'];

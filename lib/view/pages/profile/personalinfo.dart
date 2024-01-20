@@ -69,7 +69,7 @@ class PersonalInfo extends StatelessWidget {
                     labeltext: '13'.tr,suffixIcon: const Icon(Icons.person,color: AppColors.secondary), enabled: true),
                 ),
                 StatusCityGesture(
-                  field: controller.status.value,
+                  field: controller.status!,
                   icon: Icons.arrow_drop_down,
                   style: const TextStyle(color: Colors.grey,fontSize: 20,fontWeight: FontWeight.w500,letterSpacing: 1),
                   onTap: null),

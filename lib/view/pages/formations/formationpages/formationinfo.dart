@@ -62,7 +62,7 @@ class Formationinfo extends StatelessWidget {
                   field: '84'.tr,
                   icon: Icons.location_on,
                   style: const TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 1),
-                  onTap: () {}
+                  onTap: () {Get.defaultDialog(content: Text('91'.tr));}
                 ),
                 CustomInkWell(data: '94'.tr, selected: true,onTap: () {controller.updateformation();})
               ]
