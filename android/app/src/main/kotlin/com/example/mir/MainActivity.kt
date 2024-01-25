@@ -1,4 +1,4 @@
-package com.example.mir
+package com.mohamed.mir
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -21,7 +21,7 @@ class ProfileController extends GetxController {
   }
 
   shareapp(){
-    Share.share('com.example.mir');
+    Share.share('com.mohamed.mir');
   }
 
   signout() async {
