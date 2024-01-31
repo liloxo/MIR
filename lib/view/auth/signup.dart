@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mir/controller/auth/signup_controller.dart';
+import 'package:mir/core/class/handlingdataview.dart';
 import 'package:mir/core/constants/colors.dart';
 import '../../core/constants/sizes.dart';
 import '../widgets/methodcontainer.dart';
@@ -10,10 +11,16 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignupController controller = Get.put(SignupController());
+    Get.put(SignupController());
     return Scaffold(
      backgroundColor: AppColors.textWhite,
-     body: SingleChildScrollView(
+     body: GetBuilder<SignupController>(
+      builder: (controller){
+      return HandlingDataView(
+        statusRequest: controller.statusRequest, 
+        nodatawidget: null, 
+        loading: const Center(child: CircularProgressIndicator(strokeWidth: 7,color: AppColors.secondary)),
+        widget: SingleChildScrollView(
        child: Column(
         children: [
           SizedBox(height: AppSize.height / 10),
@@ -38,7 +45,9 @@ class SignUp extends StatelessWidget {
           )
         ]
        )
-     )
+     ), 
+        );
+     })
     );
   }
 }

@@ -17,7 +17,7 @@ class CustomButtonOnBoarding extends GetView<OnBoardingController> {
         borderRadius: BorderRadius.circular(60)
        ),
         height: 45,
-        width: 50,
+        width: 65,
         child: const Center(
           child: Icon(Icons.arrow_forward_ios,color: AppColors.textWhite,size: 20)
         )

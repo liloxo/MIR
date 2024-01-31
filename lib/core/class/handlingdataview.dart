@@ -4,7 +4,7 @@ import 'package:mir/core/class/statusrequest.dart';
 class HandlingDataView extends StatelessWidget {
   final StatusRequest statusRequest;
   final Widget widget;
-  final Widget nodatawidget;
+  final Widget? nodatawidget;
   final Widget loading;
   const HandlingDataView(
     {Key? key, required this.statusRequest, required this.widget, required this.nodatawidget, required this.loading})
@@ -19,7 +19,7 @@ class HandlingDataView extends StatelessWidget {
           : statusRequest == StatusRequest.serverfailure
               ? const ImageStatus(image: 'assets/noconnection.png')
               : statusRequest == StatusRequest.failure
-                  ? nodatawidget
+                  ? nodatawidget!
                   : widget;
   }
 }

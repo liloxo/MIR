@@ -5,11 +5,14 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mir/core/constants/firebaseinstance.dart';
 import '../../core/functions/translatestring.dart';
 import '../../core/services/services.dart';
+import '../../../core/class/statusrequest.dart';
+
 
 class SignupController extends GetxController {
 
   //GoogleSignIn googlesignin = GoogleSignIn(clientId: webid);
   MyServices myServices = Get.find();
+  StatusRequest statusRequest = StatusRequest.none;
   //static String webid = '901405283129-1dsfvsd18oj2t7n7se5fqur0o92ooth1.apps.googleusercontent.com';
 
   Future signIn() async {
@@ -18,6 +21,8 @@ class SignupController extends GetxController {
    Get.defaultDialog(middleText: 'User not found');
    return null;
   }
+  statusRequest = StatusRequest.loading;
+  update();
   final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
   final credential = GoogleAuthProvider.credential(
     accessToken: googleAuth.accessToken,
@@ -44,6 +49,8 @@ class SignupController extends GetxController {
       'imageurl': googleUser.photoUrl,
     });
     savepref('2',googleUser.email,googleUser.id);
+    statusRequest = StatusRequest.success;
+    update();
     Get.offAllNamed('userdetails');
   }
 }
