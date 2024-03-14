@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-Mir is an application to help students find the formation that aligns with their desire and with seamless registeration
+Mir is an application to help students find the formation that aligns with their desire and with seamless registeration and three languages supported (english,arabic,french)
 
 ![Screenshot 1](appimages/Screenshot_1698308076.png)
 ![Screenshot 2](appimages/Screenshot_1705753288.png)
