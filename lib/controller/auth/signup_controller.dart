@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mir/core/constants/firebaseinstance.dart';
 import '../../core/functions/translatestring.dart';
+import '../../core/functions/waitsnackbar.dart';
 import '../../core/services/services.dart';
 import '../../../core/class/statusrequest.dart';
 
@@ -21,6 +22,7 @@ class SignupController extends GetxController {
    Get.defaultDialog(middleText: 'User not found');
    return null;
   }
+  showsnack();
   statusRequest = StatusRequest.loading;
   update();
   final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
